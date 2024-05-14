@@ -1,80 +1,75 @@
-## Introduction to Regular Languages and Automaton Theory
+[![es](https://img.shields.io/badge/lang-es-yellow.svg)](./README.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./README.en.md)
 
-Before delving into the specifics of this project, let's take a moment to explore some fundamental concepts in computer science: regular languages and automata theory.
+## Introducción a los Lenguajes Regulares y la Teoría de Autómatas
 
-### What are Regular Languages?
+Antes de adentrarnos en los detalles de este proyecto, tomemos un momento para explorar algunos conceptos fundamentales en la informática: los lenguajes regulares y la teoría de autómatas.
 
-In computer science, a regular language is a formal language that can be described by a regular expression. These languages are fundamental in various areas of computer science, including string processing, pattern matching, and compiler design. Regular languages have many practical applications in text processing tasks, such as searching for specific patterns in files or validating user input.
+### ¿Qué son los Lenguajes Regulares?
 
-### Automata Theory
+En informática, un lenguaje regular es un lenguaje formal que puede ser descrito por una expresión regular. Estos lenguajes son fundamentales en diversas áreas de la informática, incluyendo el procesamiento de cadenas, la búsqueda de patrones y el diseño de compiladores. Los lenguajes regulares tienen muchas aplicaciones prácticas en tareas de procesamiento de texto, como buscar patrones específicos en archivos o validar la entrada del usuario.
 
-Automata theory is the study of abstract machines and computational models called automata, which are used to recognize patterns within strings or sequences of symbols. Automata can be classified into several types based on their computational power, including finite automata (FAs), pushdown automata (PDAs), and Turing machines (TMs).
+### Teoría de Autómatas
 
-### Finite Automata (FA)
+La teoría de autómatas es el estudio de máquinas abstractas y modelos computacionales llamados autómatas, que se utilizan para reconocer patrones dentro de cadenas o secuencias de símbolos. Los autómatas pueden clasificarse en varios tipos según su potencia computacional, incluyendo autómatas finitos (AF), autómatas de pila (AP) y máquinas de Turing (MT).
 
-Finite automata, also known as finite state machines (FSMs), are the simplest type of automata. They consist of a finite set of states, transitions between these states based on input symbols, and designated initial and accepting states. Finite automata are used to recognize regular languages, making them essential tools in theoretical computer science and practical applications.
+### Autómatas Finitos (AF)
 
+Los autómatas finitos, también conocidos como máquinas de estados finitos (MEF), son el tipo más simple de autómata. Consisten en un conjunto finito de estados, transiciones entre estos estados basadas en símbolos de entrada y estados inicial y de aceptación designados. Los autómatas finitos se utilizan para reconocer lenguajes regulares, lo que los convierte en herramientas esenciales en la informática teórica y aplicaciones prácticas.
 
 ---
 
-#### Regular Expression to Nondeterministic Finite Automaton (NFA) Conversion
-1. **Input**: 
-   - The user inputs a regular expression via the console.
-   - The alphabet (set of characters) for the regular expression is predefined as "ab".
+#### Conversión de Expresión Regular a Autómata Finito No Determinista (AFND)
+1. **Entrada**:
+   - El usuario introduce una expresión regular a través de la consola.
+   - El alfabeto (conjunto de caracteres) para la expresión regular está predefinido como "ab".
 
-2. **Thomson Construction (Regex to NFA)**:
-   - The regular expression is processed using Thomson's construction algorithm, which converts the regular expression into a nondeterministic finite automaton (NFA).
-   - During this process, the regular expression is parsed and transformed into states and transitions in the NFA.
+2. **Construcción de Thomson (Expresión Regular a AFND)**:
+   - La expresión regular se procesa utilizando el algoritmo de construcción de Thomson, que convierte la expresión regular en un autómata finito no determinista (AFND).
+   - Durante este proceso, la expresión regular se analiza y transforma en estados y transiciones en el AFND.
 
-#### Nondeterministic Finite Automaton (NFA) to Deterministic Finite Automaton (DFA) Conversion
-1. **Thomson Construction**:
-   - The NFA obtained from the regular expression is processed further.
+#### Conversión de Autómata Finito No Determinista (AFND) a Autómata Finito Determinista (AFD)
+1. **Construcción de Thomson**:
+   - El AFND obtenido a partir de la expresión regular se procesa más.
+
+2. **Determinización (AFND a AFD)**:
+   - El AFND obtenido se determiniza mediante un proceso que implica la creación de estados equivalentes del AFD.
+   - Las transiciones épsilon se manejan durante este proceso de determinización.
+
+#### Conversión de Autómata Finito Determinista (AFD) a Expresión Regular
+1. **AFD a Expresión Regular**:
+   - Después de obtener el AFD, el programa tiene como objetivo convertirlo nuevamente a una expresión regular.
+   - Esto se logra mediante un proceso que involucra explorar las transiciones y estados del AFD para derivar la expresión regular equivalente.
+
+### Ejecución del Programa
+1. **Entrada**:
+   - Ejecute el programa e ingrese una expresión regular a través de la consola.
    
-2. **Determinization (NFA to DFA)**:
-   - The obtained NFA is determinized using a process that involves creating equivalent DFA states.
-   - Epsilon transitions are handled during this determinization process.
+2. **Salida**:
+   - El programa muestra lo siguiente:
+     - La expresión regular original.
+     - El AFND correspondiente.
+     - El AFD determinizado.
+     - La expresión regular convertida obtenida del AFD.
 
-#### Deterministic Finite Automaton (DFA) to Regular Expression Conversion
-1. **DFA to Regular Expression**:
-   - After obtaining the DFA, the program aims to convert it back to a regular expression.
-   - This is achieved through a process that involves exploring the transitions and states of the DFA to derive the equivalent regular expression.
+### Descripción de Clases
+1. **Clase Principal**:
+   - Contiene el método principal para ejecutar el programa.
+   - Toma la entrada del usuario para la expresión regular.
+   - Instancia los objetos necesarios y llama a los métodos relevantes.
 
-### Running the Program
-1. **Input**:
-   - Run the program and input a regular expression via the console.
+2. **Clase Thomson**:
+   - Maneja el algoritmo de construcción de Thomson para convertir una expresión regular en un AFND.
+   - Incluye métodos para procesar expresiones regulares y construir AFND.
+
+3. **Clase Determinista**:
+   - Realiza el proceso de determinización para convertir un AFND en un AFD.
+   - Implementa métodos para la determinización y operaciones relacionadas con AFD.
+
+### Uso
+1. **Compilación y Ejecución**:
+   - Compile y ejecute la clase `Main`.
+   - Ingrese una expresión regular cuando se le solicite.
    
-2. **Output**:
-   - The program outputs the following:
-     - The original regular expression.
-     - The corresponding NFA.
-     - The determinized DFA.
-     - The converted regular expression obtained from the DFA.
-
-### Classes Overview
-1. **Main Class**:
-   - Contains the main method to execute the program.
-   - Takes user input for the regular expression.
-   - Instantiates necessary objects and calls relevant methods.
-
-2. **Thomson Class**:
-   - Handles the Thomson construction algorithm to convert a regular expression to an NFA.
-   - Includes methods for processing regular expressions and constructing NFAs.
-
-3. **Determinista Class**:
-   - Performs the determinization process to convert an NFA to a DFA.
-   - Implements methods for determinization and DFA-related operations.
-
-### Usage
-1. **Compile and Run**:
-   - Compile and Run the `Main` class.
-   - Input a regular expression when prompted.
-   
-2. **View Output**:
-   - The program will display the NFA, DFA, and the regular expression obtained from the DFA.
-
-### Example
-- **Input**: Enter a regular expression, e.g., `((a.b)|(b.a))*`.
-- **Output**:
-  - Display of the corresponding NFA.
-  - Display of the determinized DFA.
-  - Display of the regular expression obtained from the DFA.
+2. **Visualización de la Salida**:
+   - El programa mostrará el AFND, el AFD y la expresión regular obtenida del AFD.
